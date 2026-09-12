@@ -437,7 +437,19 @@ body::before {
 }
 
 .carousel-slide {
-    height: 285px;
+    height: clamp(240px, 30vw, 360px);
+}
+
+.carousel-slide img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-slide img.carousel-image--top-crop {
+    height: 82%;
+    object-fit: cover;
+    object-position: center top;
+    background: #dfe5f2;
 }
 
 .carousel-slide .slide-overlay {
@@ -690,7 +702,7 @@ footer a {
     }
 
     .carousel-slide {
-        height: 205px;
+        height: clamp(220px, 68vw, 300px);
     }
 
     .carousel-slide .slide-overlay {
@@ -779,7 +791,7 @@ footer a {
     }
 
     .carousel-slide {
-        height: 185px;
+        height: clamp(210px, 72vw, 260px);
     }
 
     .carousel-slide .slide-overlay blockquote {
