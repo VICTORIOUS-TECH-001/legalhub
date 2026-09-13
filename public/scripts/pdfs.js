@@ -471,7 +471,7 @@
   };
 
   window.shareMaterial = async function (materialId, materialName) {
-    const shareUrl = new URL(window.location.pathname, window.location.origin);
+    const shareUrl = new URL('/pages/pdf.html', window.location.origin);
     shareUrl.searchParams.set('material', materialId);
     const shareData = {
       title: materialName,
