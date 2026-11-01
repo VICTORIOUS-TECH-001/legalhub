@@ -14,7 +14,7 @@
 
   const COURSE_CATALOG = {
     '100L': {
-      first: ['Legal Method', 'Customary Law', 'Philosophy', 'Psychology', 'Communication in English', 'Natural Science', 'Logics', 'Introduction to Nigerian Literature'],
+      first: ['Communication in English', 'Legal Method I', 'English for Legal Writing'],
       second: ['Legal Method', 'Customary Law', 'Philosophy', 'Psychology', 'Communication in English', 'Natural Science', 'Logics', 'Introduction to Nigerian Literature']
     },
     '200L': {
@@ -30,11 +30,32 @@
         'Islamic Law',
         'Information and Communication Technology Law I'
       ],
-      second: []
+      second: [
+        'Logic, Philosophy and Human Existence',
+        'Constitutional Law II',
+        'Law of Contract II',
+        'Nigerian Legal System II'
+      ]
     },
-    '300L': { first: [], second: [] },
-    '400L': { first: [], second: [] },
-    '500L': { first: [], second: [] },
+    '300L': {
+      first: ['Criminal Law I', 'Law of Torts I', 'Commercial Law I'],
+      second: [
+        'Peace and Conflict Resolution',
+        'Venture Creation',
+        'Criminal Law II',
+        'Law of Torts II',
+        'Commercial Law II',
+        'Enterprise Appreciation'
+      ]
+    },
+    '400L': {
+      first: ['Law of Evidence I', 'Equity and Trusts I', 'Property Law I', 'Clinical and Moot Court Practice'],
+      second: ['Law of Evidence II', 'Equity and Trusts II', 'Property Law II', 'Clinical and Moot Court Practice']
+    },
+    '500L': {
+      first: ['Jurisprudence and Legal Theory I', 'Company Law I'],
+      second: ['Jurisprudence and Legal Theory II', 'Company Law II']
+    },
     'Relevant': { first: [], second: [] }
   };
 

@@ -1,0 +1,2 @@
+[functions.r2-presign]
+verify_jwt = false

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Hub — 100L First Semester</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/output.css">
+    <link rel="stylesheet" href="../styles/level-dashboard.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/auth/supabase-client.js"></script>
+    <script src="../scripts/avatar.js"></script>
+    <script src="../scripts/greeting.js"></script>
+    <script src="../scripts/course-catalog.js"></script>
+    <script src="../scripts/course-dashboard.js" defer></script>
+    <script src="../scripts/dashboard.js" defer></script>
+</head>
+<body data-level="100L" data-semester="first">
+    <div class="frame">
+        <div class="sticky-header">
+            <nav class="nav rise rise-1"><div class="nav-brand"><span class="nav-brand-mark">LH</span><span>Legal Hub</span></div><div class="nav-links"><a href="../index.html">Home</a><a href="./pdf.html" class="active">Library</a><a href="#contact">Contact</a></div><a class="profile-link" href="./profile.html" aria-label="Open your profile"><span id="header-avatar">?</span></a></nav>
+            <div class="search-wrap rise rise-2"><input id="search" type="text" placeholder="Search courses, cases, textbooks…" autocomplete="off" /><span class="kbd-hint">/</span></div>
+            <div class="chip-row rise rise-2"><button class="chip active" data-filter="">All</button><button class="chip" data-filter="Cases">Cases</button><button class="chip" data-filter="Past questions">Past Qs</button><a class="chip chip-link" id="semester-materials-link" href="./pdf.html">Books &amp; materials</a><button class="chip" data-filter="Test">Tests</button><a class="chip chip-link" href="./materials.html">Upload material</a></div>
+        </div>
+        <section class="level-intro rise rise-1"><div><p class="level-kicker" id="semester-kicker">100L / FIRST SEMESTER</p><h1 id="greeting-text">Welcome back</h1><p class="level-description" id="semester-description">Your first year, gathered in one focused study space.</p></div><div class="level-intro-actions"><nav class="level-toggle" aria-label="Choose semester"><a href="#" data-semester-link="first">First semester</a><a href="#" data-semester-link="second">Second semester</a></nav><a class="level-switch" href="../index.html#levels">All levels <span>↗</span></a></div></section>
+        <div class="stat-row rise rise-2" aria-label="Semester overview"><div class="stat-card"><div class="big" id="course-count">0</div><div class="stat-label">Courses this semester</div></div><div class="stat-card"><div class="big">0</div><div class="stat-label">Live study resources</div></div><div class="stat-card"><div class="big" id="level-number">100L</div><div class="stat-label">Your current year</div></div></div>
+        <div class="search-meta" id="search-meta"></div>
+        <div class="panel" id="starred-panel" hidden><div class="panel-top"><div class="panel-icon">⭐</div><div class="panel-title-wrap"><div class="panel-title">Starred</div><div class="panel-sub" id="starred-sub">Courses you're keeping an eye on</div></div></div><div class="thumb-row" id="starred-row"></div></div>
+        <div class="carousel-wrap rise rise-3" role="region" aria-label="Legal inspiration carousel"><div class="carousel-track" id="carouselTrack"><div class="carousel-slide"><img src="../assets/images/Law.jpg" alt="Law books and legal study" loading="lazy" /><div class="slide-overlay"><blockquote>Justice begins with the courage to ask what is fair.</blockquote><cite>— Legal Study</cite><span class="slide-tag">Foundations</span></div></div><div class="carousel-slide"><img src="../assets/images/Lady Justice.jpg" alt="Lady Justice" loading="lazy" /><div class="slide-overlay"><blockquote>Every strong argument starts by seeing the whole picture.</blockquote><cite>— The Rule of Law</cite><span class="slide-tag">Legal Principles</span></div></div><div class="carousel-slide"><img src="../assets/images/Digital transformation in law.jpg" alt="Digital transformation in law" loading="lazy" /><div class="slide-overlay"><blockquote>The future of law belongs to those willing to keep learning.</blockquote><cite>— The Practice of Law</cite><span class="slide-tag">Legal Study</span></div></div></div><button class="carousel-ctrl prev" id="carouselPrev" aria-label="Previous slide">‹</button><button class="carousel-ctrl next" id="carouselNext" aria-label="Next slide">›</button></div>
+        <div class="panel" id="recent-panel" hidden><div class="panel-top"><div class="panel-icon">🕓</div><div class="panel-title-wrap"><div class="panel-title">Recently opened</div><div class="panel-sub">This session</div></div></div><div class="thumb-row" id="recent-row"></div></div>
+        <div class="panel"><div class="panel-top"><div class="panel-title-wrap"><div class="panel-title">Your courses</div><div class="panel-sub">Jump to a course</div></div><button class="panel-cta" type="button" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">View all</button></div><div class="thumb-row" id="course-thumbnails"></div></div>
+        <div class="section-head" id="courses-head"><h2>Course Materials</h2></div>
+        <div id="no-results"><strong>No matches</strong>Try a different course or resource name.</div>
+        <div id="courses">
+            <article class="course" data-name="Communication in English">
+                <div class="course-head"><div class="course-head-left"><span class="swatch" style="background:#5ac8fa;"></span><div><span class="course-code">GST 111</span><h2 class="course-name">Communication in English</h2></div></div><span class="pill">First Semester</span><button class="star-btn" aria-label="Star Communication in English" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button><svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                <div class="course-body"><ul class="resources"><li data-name="Course materials"><a class="res-name" data-course-material href="./pdf.html">Books &amp; course materials</a></li><li data-name="Past questions"><span class="res-name">Past questions</span></li><li data-name="Test"><span class="res-name">Test</span></li></ul><div class="empty-state"><div class="emoji">🗂️</div><p>Browse approved materials or be the first to share something for this course.</p><a class="request-btn" href="./materials.html">Upload material</a></div></div>
+            </article>
+            <article class="course" data-name="Legal Method I">
+                <div class="course-head"><div class="course-head-left"><span class="swatch" style="background:#4a6cf7;"></span><div><span class="course-code">PUL 101</span><h2 class="course-name">Legal Method I</h2></div></div><span class="pill">First Semester</span><button class="star-btn" aria-label="Star Legal Method I" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button><svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                <div class="course-body"><ul class="resources"><li data-name="Course materials"><a class="res-name" data-course-material href="./pdf.html">Books &amp; course materials</a></li><li data-name="Past questions"><span class="res-name">Past questions</span></li><li data-name="Test"><span class="res-name">Test</span></li></ul><div class="empty-state"><div class="emoji">🗂️</div><p>Browse approved materials or be the first to share something for this course.</p><a class="request-btn" href="./materials.html">Upload material</a></div></div>
+            </article>
+            <article class="course" data-name="English for Legal Writing">
+                <div class="course-head"><div class="course-head-left"><span class="swatch" style="background:#ff9d5c;"></span><div><span class="course-code">LAW 101</span><h2 class="course-name">English for Legal Writing</h2></div></div><span class="pill">First Semester</span><button class="star-btn" aria-label="Star English for Legal Writing" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button><svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+                <div class="course-body"><ul class="resources"><li data-name="Course materials"><a class="res-name" data-course-material href="./pdf.html">Books &amp; course materials</a></li><li data-name="Past questions"><span class="res-name">Past questions</span></li><li data-name="Test"><span class="res-name">Test</span></li></ul><div class="empty-state"><div class="emoji">🗂️</div><p>Browse approved materials or be the first to share something for this course.</p><a class="request-btn" href="./materials.html">Upload material</a></div></div>
+            </article>
+        </div>
+        <footer id="contact"><div class="footer-brand footer-brand-lockup"><span class="footer-brand-mark">LH</span><span class="footer-brand-name">Legal Hub</span></div><div class="footer-links"><a href="../index.html#resources">About</a><a href="../index.html#contact">Privacy</a><a href="#contact">Contact</a><a href="mailto:hillarymmaka@gmail.com">Help</a></div><div class="footer-institute">© 2026 Victorious Tech</div></footer>
+    </div>
+    <div id="toast"></div>
+</body>
+</html>

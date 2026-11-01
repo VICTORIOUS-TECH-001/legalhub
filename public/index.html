@@ -106,31 +106,31 @@
                     <p class="section-note">Five levels. One growing library.<br />Start where you are.</p>
                 </div>
                 <div class="level-grid">
-                    <a class="level-card level-current" href="./pages/100l-second-semester.html">
+                    <a class="level-card level-current" href="./pages/100l-second-semester.html" data-level-selector="100L">
                         <span class="level-number">01</span><span class="level-arrow">↗</span>
                         <span class="level-tag">CURRENTLY OPEN</span><strong>100L</strong><span
                             class="level-name">Foundations</span>
                         <span class="level-detail">Legal method, language &amp; first principles</span>
                     </a>
-                    <a class="level-card" href="./pages/200l-first-semester.html">
+                    <a class="level-card" href="./pages/200l-first-semester.html" data-level-selector="200L">
                         <span class="level-number">02</span><span class="level-arrow">↗</span>
                         <span class="level-tag">SECOND YEAR</span><strong>200L</strong><span class="level-name">The
                             Framework</span>
                         <span class="level-detail">Build your core legal knowledge</span>
                     </a>
-                    <a class="level-card" href="./pages/pdf.html?level=300L">
+                    <a class="level-card" href="./pages/300l-first-semester.html" data-level-selector="300L">
                         <span class="level-number">03</span><span class="level-arrow">↗</span>
                         <span class="level-tag">THIRD YEAR</span><strong>300L</strong><span class="level-name">The
                             Practice</span>
                         <span class="level-detail">Turn doctrine into working arguments</span>
                     </a>
-                    <a class="level-card" href="./pages/pdf.html?level=400L">
+                    <a class="level-card" href="./pages/400l-first-semester.html" data-level-selector="400L">
                         <span class="level-number">04</span><span class="level-arrow">↗</span>
                         <span class="level-tag">FOURTH YEAR</span><strong>400L</strong><span class="level-name">The
                             Focus</span>
                         <span class="level-detail">Find your voice and your specialty</span>
                     </a>
-                    <a class="level-card level-final" href="./pages/pdf.html?level=500L">
+                    <a class="level-card level-final" href="./pages/500l-first-semester.html" data-level-selector="500L">
                         <span class="level-number">05</span><span class="level-arrow">↗</span>
                         <span class="level-tag">FINAL YEAR</span><strong>500L</strong><span class="level-name">The
                             Call</span>
@@ -138,6 +138,19 @@
                     </a>
                 </div>
             </section>
+
+            <dialog class="semester-dialog" id="semester-dialog" aria-labelledby="semester-dialog-title">
+                <div class="semester-dialog-content">
+                    <p class="eyebrow">CHOOSE YOUR STUDY SPACE</p>
+                    <h2 id="semester-dialog-title">Choose a semester</h2>
+                    <p id="semester-dialog-level"></p>
+                    <div class="semester-dialog-actions">
+                        <button type="button" data-semester="first">First semester</button>
+                        <button type="button" data-semester="second">Second semester</button>
+                    </div>
+                    <button class="semester-dialog-cancel" type="button" id="semester-dialog-cancel">Cancel</button>
+                </div>
+            </dialog>
 
             <section class="quick-section" id="resources">
                 <div class="section-heading compact">
@@ -250,8 +263,29 @@
                 primaryNav.classList.remove('menu-open');
             }
         });
-        const hour = new Date().getHours();
-        greeting.firstChild.textContent = (hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening');
+        const semesterDialog = document.getElementById('semester-dialog');
+        let selectedLevel = '';
+        document.querySelectorAll('[data-level-selector]').forEach(card => {
+            card.addEventListener('click', event => {
+                event.preventDefault();
+                selectedLevel = card.dataset.levelSelector;
+                document.getElementById('semester-dialog-level').textContent = `Select a semester for ${selectedLevel}.`;
+                semesterDialog.showModal();
+            });
+        });
+        semesterDialog.querySelectorAll('[data-semester]').forEach(button => {
+            button.addEventListener('click', () => {
+                const semester = button.dataset.semester;
+                window.location.href = `./pages/${selectedLevel.toLowerCase()}-${semester}-semester.html`;
+            });
+        });
+        document.getElementById('semester-dialog-cancel').addEventListener('click', () => semesterDialog.close());
+        const hour = Number(new Intl.DateTimeFormat('en-NG', {
+            timeZone: 'Africa/Lagos',
+            hour: 'numeric',
+            hourCycle: 'h23'
+        }).format(new Date()));
+        greeting.firstChild.textContent = (hour >= 5 && hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening');
 
         const start = new Date('2026-05-01T00:00:00');
         const exams = new Date('2026-10-15T00:00:00');

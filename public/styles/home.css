@@ -1104,3 +1104,64 @@ body {
 .home-carousel {
     box-shadow: 0 15px 35px rgba(24, 33, 43, .12);
 }
+
+.semester-dialog {
+    width: min(440px, calc(100% - 32px));
+    padding: 0;
+    border: 1px solid rgba(24, 33, 43, .12);
+    color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 24px 80px rgba(24, 33, 43, .28);
+}
+
+.semester-dialog::backdrop {
+    background: rgba(15, 23, 42, .58);
+    backdrop-filter: blur(4px);
+}
+
+.semester-dialog-content {
+    padding: 28px;
+}
+
+.semester-dialog-content h2 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.semester-dialog-content>p:not(.eyebrow) {
+    margin: 8px 0 20px;
+    color: var(--muted);
+}
+
+.semester-dialog-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.semester-dialog-actions button,
+.semester-dialog-cancel {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--ink);
+    background: white;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.semester-dialog-actions button:hover {
+    color: white;
+    background: var(--blue);
+}
+
+.semester-dialog-cancel {
+    display: block;
+    min-height: auto;
+    margin: 14px auto 0;
+    border: 0;
+    color: var(--muted);
+    background: transparent;
+}
