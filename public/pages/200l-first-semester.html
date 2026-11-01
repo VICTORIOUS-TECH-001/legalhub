@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Hub — 200L First Semester</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/output.css">
+    <link rel="stylesheet" href="../styles/level-dashboard.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+    <meta property="og:title" content="LegalHub - 200L First Semester" />
+    <meta property="og:description"
+        content="A law student's platform for course materials, case researches, and lots more." />
+    <meta property="og:image" content="https://your-live-domain.com/social-preview.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-live-domain.com/" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/auth/supabase-client.js"></script>
+    <script src="../scripts/avatar.js"></script>
+</head>
+
+<body class="level-200">
+    <div class="frame">
+        <div class="sticky-header">
+            <nav class="nav rise rise-1">
+                <div class="nav-brand">
+                    <span class="nav-brand-mark">LH</span>
+                    <span>Legal Hub</span>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                    <a href="../index.html#resources">About</a>
+                    <a href="./pdf.html" class="active">Library</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a class="profile-link" href="./profile.html" aria-label="Open your profile"><span
+                        id="header-avatar">?</span></a>
+            </nav>
+
+            <div class="search-wrap rise rise-2">
+                <svg class="icon-search" width="17" height="17" viewBox="0 0 16 16" fill="none">
+                    <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M11.5 11.5L15 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <input id="search" type="text" placeholder="Search courses, cases, textbooks…" autocomplete="off" />
+                <span class="kbd-hint">/</span>
+            </div>
+
+            <div class="chip-row rise rise-2">
+                <button class="chip active" data-filter="">All</button>
+                <button class="chip" data-filter="Cases">Cases</button>
+                <button class="chip" data-filter="Past questions">Past Qs</button>
+                <a class="chip chip-link" href="./pdf.html?level=200L&amp;semester=first">Books &amp; materials</a>
+                <button class="chip" data-filter="Test">Tests</button>
+                <a class="chip chip-link" href="./materials.html">Upload material</a>
+            </div>
+        </div>
+
+        <section class="level-intro rise rise-1">
+            <div>
+                <p class="level-kicker">200L / FIRST SEMESTER</p>
+                <h1 id="greeting-text">Welcome back</h1>
+                <p class="level-description">Your second year, gathered in one focused study space. Pick a course and
+                    keep moving.</p>
+            </div>
+            <div class="level-intro-actions">
+                <nav class="level-toggle" aria-label="Choose study level">
+                    <a href="./100l-second-semester.html">100L</a>
+                    <a href="./200l-first-semester.html" aria-current="page">200L</a>
+                </nav>
+                <a class="level-switch" href="../index.html#levels">All levels <span>↗</span></a>
+            </div>
+        </section>
+
+        <div class="stat-row rise rise-2" aria-label="200L study overview">
+            <div class="stat-card">
+                <div class="big">10</div>
+                <div class="stat-label">Courses this semester</div>
+            </div>
+            <div class="stat-card">
+                <div class="big">0</div>
+                <div class="stat-label">Live study resources</div>
+            </div>
+            <div class="stat-card">
+                <div class="big">02</div>
+                <div class="stat-label">Your current year</div>
+            </div>
+        </div>
+
+        <div class="search-meta" id="search-meta"></div>
+
+        <div class="panel" id="starred-panel" hidden>
+            <div class="panel-top">
+                <div class="panel-icon" style="background:rgba(255,210,92,0.15); color:#d4a020;">⭐</div>
+                <div class="panel-title-wrap">
+                    <div class="panel-title">Starred</div>
+                    <div class="panel-sub" id="starred-sub">Courses you're keeping an eye on</div>
+                </div>
+            </div>
+            <div class="thumb-row" id="starred-row"></div>
+        </div>
+
+        <div class="carousel-wrap rise rise-3" role="region" aria-label="Legal inspiration carousel">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                        alt="Law books and a gavel on a desk" loading="lazy" />
+                    <div class="slide-overlay">
+                        <blockquote>The Nigerian legal system is a rich fusion of English common law, customary law, and
+                            Islamic law.</blockquote>
+                        <cite>— Legal Heritage of Nigeria</cite>
+                        <span class="slide-tag">Constitutional Law</span>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                        alt="A courthouse representing justice and the rule of law" loading="lazy" />
+                    <div class="slide-overlay">
+                        <blockquote>Justice is built on principled reasoning, careful listening, and equal protection.</blockquote>
+                        <cite>— The Rule of Law</cite>
+                        <span class="slide-tag">Legal Principles</span>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                        alt="A legal professional studying case files" loading="lazy" />
+                    <div class="slide-overlay">
+                        <blockquote>Strong legal arguments begin with curiosity, preparation, and a commitment to truth.</blockquote>
+                        <cite>— The Practice of Law</cite>
+                        <span class="slide-tag">Legal Study</span>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-ctrl prev" id="carouselPrev" aria-label="Previous slide">‹</button>
+            <button class="carousel-ctrl next" id="carouselNext" aria-label="Next slide">›</button>
+        </div>
+
+        <div class="panel" id="recent-panel" hidden>
+            <div class="panel-top">
+                <div class="panel-icon" style="background:rgba(124,92,252,0.12); color:#7c5cfc;">🕓</div>
+                <div class="panel-title-wrap">
+                    <div class="panel-title">Recently opened</div>
+                    <div class="panel-sub">This session</div>
+                </div>
+            </div>
+            <div class="thumb-row" id="recent-row"></div>
+        </div>
+
+        <div class="section-head rise rise-3" id="courses">
+            <h2>My Courses</h2>
+            <div class="count-badge">10<div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="panel study-routes rise rise-5">
+            <div class="panel-top">
+                <div class="panel-icon" style="background:rgba(255,157,92,0.15); color:#e8822a;">✦</div>
+                <div class="panel-title-wrap">
+                    <div class="panel-title">Choose your next move</div>
+                    <div class="panel-sub">Small steps make strong law students</div>
+                </div>
+                <button class="panel-cta" type="button"
+                    onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">Browse</button>
+            </div>
+            <div class="route-grid">
+                <a class="route-card route-blue" href="./pdf.html?level=200L&amp;semester=first">
+                    <span class="route-number">01</span><strong>Open course materials</strong><small>Browse books and
+                        notes</small><span class="route-arrow">↗</span>
+                </a>
+                <a class="route-card route-green" href="./materials.html">
+                    <span class="route-number">02</span><strong>Share a resource</strong><small>Leave something
+                        useful</small><span class="route-arrow">↗</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="panel rise rise-6">
+            <div class="panel-top">
+                <div class="panel-icon" style="background:rgba(124,92,252,0.12); color:#7c5cfc;">📖</div>
+                <div class="panel-title-wrap">
+                    <div class="panel-title">All Courses</div>
+                    <div class="panel-sub">Tap a course to jump to it</div>
+                </div>
+                <button class="panel-cta" type="button"
+                    onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">View all</button>
+            </div>
+            <div class="thumb-row">
+                <div class="thumb" data-jump="Entrepreneurship and Innovation">
+                    <div class="thumb-sq" style="background:#4a6cf7;">ENT 211</div>
+                    <div class="thumb-label">Entrepreneurship and Innovation</div>
+                </div>
+                <div class="thumb" data-jump="Introduction to Computer Science">
+                    <div class="thumb-sq" style="background:#ff9d5c;">COS 101</div>
+                    <div class="thumb-label">Introduction to Computer Science</div>
+                </div>
+                <div class="thumb" data-jump="Philosophy, Logic and Human Existence">
+                    <div class="thumb-sq" style="background:#34c759;">GST 211</div>
+                    <div class="thumb-label">Philosophy, Logic and Human Existence</div>
+                </div>
+                <div class="thumb" data-jump="Constitutional Law I">
+                    <div class="thumb-sq" style="background:#7c5cfc;">PUL 201</div>
+                    <div class="thumb-label">Constitutional Law I</div>
+                </div>
+                <div class="thumb" data-jump="Nigerian Legal System I">
+                    <div class="thumb-sq" style="background:#ffd25c; color:#1a1a2e;">PUL 203</div>
+                    <div class="thumb-label">Nigerian Legal System I</div>
+                </div>
+                <div class="thumb" data-jump="Law of Contract I">
+                    <div class="thumb-sq" style="background:#5ac8fa; color:#1a1a2e;">PRL 201</div>
+                    <div class="thumb-label">Law of Contract I</div>
+                </div>
+                <div class="thumb" data-jump="Law of Consumer Protection I">
+                    <div class="thumb-sq" style="background:#6bbf9a;">UNN-LAW 211</div>
+                    <div class="thumb-label">Law of Consumer Protection I</div>
+                </div>
+                <div class="thumb" data-jump="Children, Women and the Law (CHWL) I">
+                    <div class="thumb-sq" style="background:#dc8eb5;">UNN-LAW 271</div>
+                    <div class="thumb-label">Children, Women and the Law (CHWL) I</div>
+                </div>
+                <div class="thumb" data-jump="Islamic Law">
+                    <div class="thumb-sq" style="background:#d6a64f;">UNN-LAW 221</div>
+                    <div class="thumb-label">Islamic Law</div>
+                </div>
+                <div class="thumb" data-jump="Information and Communication Technology Law I">
+                    <div class="thumb-sq" style="background:#7195cf;">UNN-LAW 261</div>
+                    <div class="thumb-label">Information and Communication Technology Law I</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-head" id="courses-head">
+            <h2>Course Materials</h2>
+        </div>
+        <div id="no-results"><strong>No matches</strong>Try a different course or resource name.</div>
+
+        <div class="course" data-name="Entrepreneurship and Innovation">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#4a6cf7;"></span>
+                    <div><span class="course-code">ENT 211</span><h2 class="course-name">Entrepreneurship and Innovation</h2></div>
+                </div>
+                <span class="pill">2 Units</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Entrepreneurship%20and%20Innovation">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Entrepreneurship and Innovation">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Introduction to Computer Science">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#ff9d5c;"></span>
+                    <div><span class="course-code">COS 101</span><h2 class="course-name">Introduction to Computer Science</h2></div>
+                </div>
+                <span class="pill">2 Units</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Introduction%20to%20Computer%20Science">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Introduction to Computer Science">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Philosophy, Logic and Human Existence">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#34c759;"></span>
+                    <div><span class="course-code">GST 211</span><h2 class="course-name">Philosophy, Logic and Human Existence</h2></div>
+                </div>
+                <span class="pill">2 Units</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Philosophy%2C%20Logic%20and%20Human%20Existence">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Philosophy, Logic and Human Existence">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Constitutional Law I">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#7c5cfc;"></span>
+                    <div><span class="course-code">PUL 201</span><h2 class="course-name">Constitutional Law I</h2></div>
+                </div>
+                <span class="pill">4 Units</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Constitutional%20Law%20I">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Constitutional Law I">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Nigerian Legal System I">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#ffd25c;"></span>
+                    <div><span class="course-code">PUL 203</span><h2 class="course-name">Nigerian Legal System I</h2></div>
+                </div>
+                <span class="pill">4 Units</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Nigerian%20Legal%20System%20I">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Nigerian Legal System I">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Law of Contract I">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#5ac8fa;"></span>
+                    <div><span class="course-code">PRL 201</span><h2 class="course-name">Law of Contract I</h2></div>
+                </div>
+                <span class="pill">4 Units</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Law%20of%20Contract%20I">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Law of Contract I">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Law of Consumer Protection I">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#6bbf9a;"></span>
+                    <div><span class="course-code">UNN-LAW 211</span><h2 class="course-name">Law of Consumer Protection I</h2></div>
+                </div>
+                <span class="pill">First Semester</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Law%20of%20Consumer%20Protection%20I">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Law of Consumer Protection I">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Children, Women and the Law (CHWL) I">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#dc8eb5;"></span>
+                    <div><span class="course-code">UNN-LAW 271</span><h2 class="course-name">Children, Women and the Law (CHWL) I</h2></div>
+                </div>
+                <span class="pill">First Semester</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Children%2C%20Women%20and%20the%20Law%20%28CHWL%29%20I">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Children, Women and the Law (CHWL) I">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Islamic Law">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#d6a64f;"></span>
+                    <div><span class="course-code">UNN-LAW 221</span><h2 class="course-name">Islamic Law</h2></div>
+                </div>
+                <span class="pill">First Semester</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Islamic%20Law">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Islamic Law">Request this material</button></div>
+            </div>
+        </div>
+
+        <div class="course" data-name="Information and Communication Technology Law I">
+            <div class="course-head">
+                <div class="course-head-left">
+                    <span class="swatch" style="background:#7195cf;"></span>
+                    <div><span class="course-code">UNN-LAW 261</span><h2 class="course-name">Information and Communication Technology Law I</h2></div>
+                </div>
+                <span class="pill">First Semester</span>
+                <button class="star-btn" aria-label="Star this course" title="Star this course"><svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l1.85 3.9 4.3.55-3.15 3 .85 4.3L8 11.2 4.15 13.25 5 8.95 1.85 5.95l4.3-.55L8 1.5z" /></svg></button>
+                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+            <div class="course-body">
+                <ul class="resources">
+                    <li data-name="Course materials"><a class="res-name" href="./pdf.html?level=200L&amp;semester=first&amp;course=Information%20and%20Communication%20Technology%20Law%20I">Books &amp; course materials</a></li>
+                    <li data-name="Past questions"><span class="res-name">Past questions</span></li>
+                    <li data-name="Test"><span class="res-name">Test</span></li>
+                </ul>
+                <div class="empty-state"><div class="emoji">🗂️</div><p>Nothing uploaded here yet — be the first to add something.</p><button class="request-btn" data-course="Information and Communication Technology Law I">Request this material</button></div>
+            </div>
+        </div>
+
+        <footer id="contact">
+            <div class="footer-brand footer-brand-lockup">
+                <span class="footer-brand-mark">LH</span>
+                <span class="footer-brand-name">Legal Hub</span>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#resources">About</a>
+                <a href="../index.html#contact">Privacy</a>
+                <a href="#contact">Contact</a>
+                <a href="mailto:hillarymmaka@gmail.com">Help</a>
+            </div>
+            <div class="footer-institute">© 2026 Victorious Tech</div>
+        </footer>
+    </div>
+
+    <div id="toast"></div>
+    <script src="../scripts/dashboard.js"></script>
+</body>
+
+</html>

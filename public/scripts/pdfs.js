@@ -17,7 +17,21 @@
       first: ['Legal Method', 'Customary Law', 'Philosophy', 'Psychology', 'Communication in English', 'Natural Science', 'Logics', 'Introduction to Nigerian Literature'],
       second: ['Legal Method', 'Customary Law', 'Philosophy', 'Psychology', 'Communication in English', 'Natural Science', 'Logics', 'Introduction to Nigerian Literature']
     },
-    '200L': { first: [], second: [] },
+    '200L': {
+      first: [
+        'Entrepreneurship and Innovation',
+        'Introduction to Computer Science',
+        'Philosophy, Logic and Human Existence',
+        'Constitutional Law I',
+        'Nigerian Legal System I',
+        'Law of Contract I',
+        'Law of Consumer Protection I',
+        'Children, Women and the Law (CHWL) I',
+        'Islamic Law',
+        'Information and Communication Technology Law I'
+      ],
+      second: []
+    },
     '300L': { first: [], second: [] },
     '400L': { first: [], second: [] },
     '500L': { first: [], second: [] },

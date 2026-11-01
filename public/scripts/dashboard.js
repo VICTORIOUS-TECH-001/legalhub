@@ -92,8 +92,16 @@
 
             const greeting = document.getElementById('greeting-text');
             if (greeting) {
-                const hour = new Date().getHours();
-                const timeGreeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+                const hour = Number(new Intl.DateTimeFormat('en-NG', {
+                    timeZone: 'Africa/Lagos',
+                    hour: 'numeric',
+                    hourCycle: 'h23'
+                }).format(new Date()));
+                const timeGreeting = hour >= 5 && hour < 12
+                    ? 'Good morning'
+                    : hour >= 12 && hour < 17
+                        ? 'Good afternoon'
+                        : 'Good evening';
                 greeting.textContent = timeGreeting + ', student';
                 if (typeof supabaseClient !== 'undefined') {
                     supabaseClient.auth.getSession().then(async ({ data: { session } }) => {
